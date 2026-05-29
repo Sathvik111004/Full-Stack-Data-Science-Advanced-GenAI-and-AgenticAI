@@ -1,1 +1,1 @@
-NumPY Matrix operations
+COMPLETE NumPY OPERATIONS
