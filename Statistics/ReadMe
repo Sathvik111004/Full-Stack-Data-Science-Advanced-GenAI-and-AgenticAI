@@ -1,1 +1,58 @@
+	I. Descriptive Statistics :
+	-  describe() function
+	A. Measure of central tendency :
+	Mean -
+	
+	
+	 Median -  Mid value
+	
+	
+	 Mode -  Eg : 1,2,3,3 --- Mode = 3 , High frequency
+	
+	
+	B. Measure of Asymmetry :
+	 Skewness -  To check whether the data is located  left side or right side.
+	
+	
+	- Mean > Median and Mode == Positive Skew == Data Left side == Outlier is Right side
+	- Mean == Median == Mode == Zero Skew  ( Always consider this) -- Normal Distribution
+	- Mode> Median > Mean == Negative Skew == Data right side == Outlier is left side
+	- 
+	- We can solve multiple data skewness using SCIPY Library or STATS API
+	
+	
+	Kurtosis - Skewness and Kurtosis have same meaning , but graphs are different
+	
+	
+	
+	+ve Kurtosis ==  Positive Skew == Leptokurtic
+	-ve Kurtosis == Negative Skew == Platykurtic 
+	0 Kurtosis == Zero Skew ==  Mesokurtic
+	
+	
+	C. Measure of Variability : 
+	
+	 Variance  -  Spread of Data around mean
+	
+	
+	Mew == Population mean
+	X bar == Sample mean
+	N = Number Total Population
+	 n = Number Sample population total
+	
+	standard deviation - 
+	
+	
+	Coefficient of variation - 
+	
+	- Does not have a unit of measurement 
+	- Universal across datasets
+	- Perfect for comparisons  
+	
+	
+	
+	---- 
+	
+	
+	
 
