@@ -1,20 +1,11 @@
 from flask import Flask, request, render_template_string
 import pickle
 import numpy as np
-import os
 
 app = Flask(__name__)
 
-# Resolve path to the pickle file relative to this script
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, 'linear_regression_model.pkl')
-
-try:
-    with open(MODEL_PATH, 'rb') as file:
-        model = pickle.load(file)
-except Exception as e:
-    model = None
-    print(f"Error loading model: {e}")
+# Load the trained model using the original absolute path
+model = pickle.load(open('/Users/sathvikgattu/Desktop/FSDSAI/Machine Learning/Regression/SLR/linear_regression_model.pkl', 'rb'))
 
 # Simple HTML page with form and results
 HTML_TEMPLATE = '''<!DOCTYPE html>
@@ -54,10 +45,6 @@ def home():
     error = None
     
     if request.method == 'POST':
-        if model is None:
-            error = "Error: The model file could not be loaded on the server."
-            return render_template_string(HTML_TEMPLATE, error=error, years_experience=years_experience, prediction=prediction)
-            
         try:
             raw_input = request.form.get('years_experience', '')
             years_experience = float(raw_input)
