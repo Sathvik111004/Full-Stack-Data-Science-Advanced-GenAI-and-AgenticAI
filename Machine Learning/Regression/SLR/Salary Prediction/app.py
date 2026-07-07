@@ -1,7 +1,12 @@
 import sys
+import os
 
-# Check if the script is run with Streamlit or directly with Python (Flask)
-is_streamlit = any('streamlit' in arg for arg in sys.argv) or 'run' in sys.argv
+# Resolve paths relative to this script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, 'linear_regression_model.pkl')
+
+# Check if the script is run under the Streamlit runtime (Streamlit CLI loads streamlit before running the script)
+is_streamlit = 'streamlit' in sys.modules
 
 if is_streamlit:
     # ==========================================
@@ -12,7 +17,7 @@ if is_streamlit:
     import numpy as np
     
     #Load the trained model from the pickle file
-    model= pickle.load(open('/Users/sathvikgattu/Desktop/FSDSAI/Machine Learning/Regression/SLR/linear_regression_model.pkl','rb'))
+    model= pickle.load(open(MODEL_PATH,'rb'))
     
     # Set the title of the app
     st.title("Salary Prediction App")
@@ -44,8 +49,8 @@ else:
     
     app = Flask(__name__)
     
-    # Load the trained model using the original absolute path
-    model = pickle.load(open('/Users/sathvikgattu/Desktop/FSDSAI/Machine Learning/Regression/SLR/linear_regression_model.pkl', 'rb'))
+    # Load the trained model using the relative path
+    model = pickle.load(open(MODEL_PATH, 'rb'))
     
     # Simple HTML page with form and results
     HTML_TEMPLATE = '''<!DOCTYPE html>
